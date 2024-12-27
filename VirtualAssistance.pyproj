@@ -24,6 +24,8 @@
   <ItemGroup>
     <Compile Include="DataAccess\MilvusDA.py" />
     <Compile Include="Entities\CommonLib\ConfigData.py" />
+    <Compile Include="MyOllama.py" />
+    <Compile Include="service.py" />
     <Compile Include="VirtualAssistance.py" />
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +36,7 @@
     <Folder Include="DataAccess\" />
     <Folder Include="Entities\" />
     <Folder Include="Entities\CommonLib\" />
+    <Folder Include="LLM\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
