@@ -1,13 +1,23 @@
-import json
+import os
 
-class ConfigData(object):
-    @staticmethod
-    def load_config(file_path):
-        """Loads configuration and sets class-level attributes."""
-        try:
-            with open(file_path, 'r') as file:
-                config = json.load(file)
-                for key, value in config.items():
-                    setattr(ConfigData, key, value)
-        except Exception as e:
-            print(f"Error loading config: {e}")
+############### Milvus Configuration ###############
+MILVUS_HOST = os.getenv("MILVUS_HOST", "127.0.0.1")
+MILVUS_PORT = int(os.getenv("MILVUS_PORT", "19530"))
+VECTOR_DIMENSION = int(os.getenv("VECTOR_DIMENSION", "384"))
+INDEX_FILE_SIZE = int(os.getenv("INDEX_FILE_SIZE", "1024"))
+METRIC_TYPE = os.getenv("METRIC_TYPE", "IP")
+DEFAULT_TABLE = os.getenv("DEFAULT_TABLE", "qa_search")
+TOP_K = int(os.getenv("TOP_K", "10"))
+
+############### MySQL Configuration ###############
+MYSQL_HOST = os.getenv("MYSQL_HOST", "127.0.0.1")
+MYSQL_PORT = int(os.getenv("MYSQL_PORT", "3306"))
+MYSQL_USER = os.getenv("MYSQL_USER", "root")
+MYSQL_PWD = os.getenv("MYSQL_PWD", "123456")
+MYSQL_DB = os.getenv("MYSQL_DB", "mysql")
+
+############### Data Path ###############
+UPLOAD_PATH = os.getenv("UPLOAD_PATH", "tmp/qa-data")
+
+############### Number of log files ###############
+LOGS_NUM = int(os.getenv("logs_num", "0"))
