@@ -60,11 +60,11 @@ class MilvusHelper:
             Logger.error(f"Failed to insert data to Milvus: {e}")
             sys.exit(1)
 
-    def create_index(self, collection_name):
+    def create_index(self, collection_name, indexType: str = 'IVF_FLAT'):
         # Create IVF_FLAT index on milvus collection
         try:
             self.set_collection(collection_name)
-            default_index = {"metric_type": METRIC_TYPE, "index_type": "IVF_FLAT", "params": {"nlist": 2048}}
+            default_index = {"metric_type": METRIC_TYPE, "index_type": indexType, "params": {"nlist": 2048}}
             status = self.collection.create_index(field_name="embedding", index_params=default_index)
             if not status.code:
                 Logger.debug(
