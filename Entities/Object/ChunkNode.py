@@ -1,6 +1,4 @@
 from typing import TypedDict
-
-
 class ChunkNode(TypedDict):
    """
    This class is an object contain field for chunk
